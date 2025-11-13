@@ -71,3 +71,7 @@ Flirt_Baazaar stands as a milestone in phishing simulation projects by blending 
 ## License
 
 Apache License. See LICENSE file for details.
+
+---
+
+--. .-. . .- - -....- .--. --- .-- . .-. -....- -.-. --- -- . ... -....- .-- .. - .... -....- --. .-. . .- - -....- .-. . ... .--. --- -. ... .. -... .. .-.. .. - -.--
